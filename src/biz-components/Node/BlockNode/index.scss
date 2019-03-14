@@ -1,0 +1,42 @@
+@import '~@ui/base.scss';
+.blockNode-wrapper {
+  position: relative;
+  overflow: visible;
+  cursor: pointer;
+  &:hover {
+    .blockNode-button {
+      opacity: 1;
+    }
+  }
+}
+
+.blockNode-buttons {
+  position: absolute;
+  left: rem(-2 * $base_font * $base_lineheight + 10);
+  height: rem($base_font * $base_lineheight);
+  width: rem(2 * $base_font * $base_lineheight - 10);
+  display: flex;
+  .icon-move {
+    color: $gray_3;
+    line-height: 1;
+  }
+  .icon-add {
+    color: $gray_3;
+    line-height: 1;
+  }
+}
+
+.blockNode-button {
+  display: inline-block;
+  width: rem($base_font * $base_lineheight);
+  height: rem($base_font * $base_lineheight);
+  transition: all .3s;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blockNode-content {
+  background: lightblue;
+}

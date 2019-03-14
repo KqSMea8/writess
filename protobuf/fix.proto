@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package Fix;
+
+message TextFixStyle {
+  string color = 1;
+  string background = 2;
+  int32 font_size = 3;
+}
+
+message ImageFixStyle {
+  int32 width = 1;
+  int32 height = 2;
+}
+
+enum FixType {
+  TEXT = 0;
+  IMAGE = 1;
+}
+
+message FixEntity {
+  string id = 1;
+  string entity_id = 2;
+  string content = 3;
+  FixType fix_type = 4;
+  int32 top = 5;
+  int32 left = 6;
+  int32 right = 7;
+  int32 bottom = 8;
+  TextFixStyle text_fix_style = 9;
+  ImageFixStyle image_fix_style = 10;
+  string document_id = 11;
+}

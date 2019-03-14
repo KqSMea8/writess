@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package Change;
+
+import "./set.proto";
+import "./block.proto";
+import "./piece.proto";
+import "./fix.proto";
+
+enum ChangeType {
+  REPLACE = 0;
+  SWITCH = 1;
+  UPDATE = 2;
+}
+
+message ReplaceChange {
+  string before_entity_id = 1;
+  string after_entity_id = 2;
+  repeated string delete_entity_ids = 3;
+  repeated string add_entity_ids = 4;
+  repeated SetEntity set_entities = 5;
+  repeated BlockEntity block_entities = 6;
+  repeated PieceEntity piece_entities = 7;
+  repeated FixEntity fix_entities = 8;
+}
+
+message SwitchChange {
+  string before_entity_id = 1;
+  string after_entity_id = 2;
+  string current_entity_id = 3;
+}
+
+message UpdateChange {
+  string key = 1;
+  string val = 2;
+}
+
+message ChangeEntity {
+  string id = 1;
+  string target_entity_id = 2;
+  repeated string path_ids = 3;
+  ChangeType change_type = 4;
+  ReplaceChange replace_change = 5;
+  SwitchChange switch_change = 6;
+  UpdateChange update_change = 7;
+  string document_id = 8;
+}

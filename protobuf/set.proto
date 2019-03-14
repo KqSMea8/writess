@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package Set;
+
+import "./block.proto";
+
+message SetStyle {
+  int32 width = 1;
+  int32 height = 2;
+}
+
+enum SetLayout {
+  NORMAL = 0;
+  FLEX = 1;
+  GRID = 2;
+}
+
+message SetEntity {
+  string id = 1;
+  string entity_id = 2;
+  repeated string content_ids = 3;
+  bool is_root = 4;
+  SetLayout set_layout = 5;
+  SetStyle set_style = 6;
+  string extra_info = 7;
+  string document_id = 8;
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package Save;
+
+import "./set.proto";
+import "./block.proto";
+import "./piece.proto";
+import "./fix.proto";
+
+message SaveEntity {
+  string latest_cursor = 1;
+  repeated SetEntity set_entities = 2;
+  repeated BlockEntity block_entities = 3;
+  repeated FixEntity fix_entities = 4;
+  repeated PieceEntity piece_entities = 5;
+}

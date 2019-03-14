@@ -1,0 +1,428 @@
+{
+  "nested": {
+    "Change": {
+      "nested": {
+        "ChangeType": {
+          "values": {
+            "REPLACE": 0,
+            "SWITCH": 1,
+            "UPDATE": 2
+          }
+        },
+        "ReplaceChange": {
+          "fields": {
+            "beforeEntityId": {
+              "type": "string",
+              "id": 1
+            },
+            "afterEntityId": {
+              "type": "string",
+              "id": 2
+            },
+            "deleteEntityIds": {
+              "rule": "repeated",
+              "type": "string",
+              "id": 3
+            },
+            "addEntityIds": {
+              "rule": "repeated",
+              "type": "string",
+              "id": 4
+            },
+            "setEntities": {
+              "rule": "repeated",
+              "type": "SetEntity",
+              "id": 5
+            },
+            "blockEntities": {
+              "rule": "repeated",
+              "type": "BlockEntity",
+              "id": 6
+            },
+            "pieceEntities": {
+              "rule": "repeated",
+              "type": "PieceEntity",
+              "id": 7
+            },
+            "fixEntities": {
+              "rule": "repeated",
+              "type": "FixEntity",
+              "id": 8
+            }
+          }
+        },
+        "SwitchChange": {
+          "fields": {
+            "beforeEntityId": {
+              "type": "string",
+              "id": 1
+            },
+            "afterEntityId": {
+              "type": "string",
+              "id": 2
+            },
+            "currentEntityId": {
+              "type": "string",
+              "id": 3
+            }
+          }
+        },
+        "UpdateChange": {
+          "fields": {
+            "key": {
+              "type": "string",
+              "id": 1
+            },
+            "val": {
+              "type": "string",
+              "id": 2
+            }
+          }
+        },
+        "ChangeEntity": {
+          "fields": {
+            "id": {
+              "type": "string",
+              "id": 1
+            },
+            "targetEntityId": {
+              "type": "string",
+              "id": 2
+            },
+            "pathIds": {
+              "rule": "repeated",
+              "type": "string",
+              "id": 3
+            },
+            "changeType": {
+              "type": "ChangeType",
+              "id": 4
+            },
+            "replaceChange": {
+              "type": "ReplaceChange",
+              "id": 5
+            },
+            "switchChange": {
+              "type": "SwitchChange",
+              "id": 6
+            },
+            "updateChange": {
+              "type": "UpdateChange",
+              "id": 7
+            },
+            "documentId": {
+              "type": "string",
+              "id": 8
+            }
+          }
+        }
+      }
+    },
+    "Set": {
+      "nested": {
+        "SetStyle": {
+          "fields": {
+            "width": {
+              "type": "int32",
+              "id": 1
+            },
+            "height": {
+              "type": "int32",
+              "id": 2
+            }
+          }
+        },
+        "SetLayout": {
+          "values": {
+            "NORMAL": 0,
+            "FLEX": 1,
+            "GRID": 2
+          }
+        },
+        "SetEntity": {
+          "fields": {
+            "id": {
+              "type": "string",
+              "id": 1
+            },
+            "entityId": {
+              "type": "string",
+              "id": 2
+            },
+            "contentIds": {
+              "rule": "repeated",
+              "type": "string",
+              "id": 3
+            },
+            "isRoot": {
+              "type": "bool",
+              "id": 4
+            },
+            "setLayout": {
+              "type": "SetLayout",
+              "id": 5
+            },
+            "setStyle": {
+              "type": "SetStyle",
+              "id": 6
+            },
+            "extraInfo": {
+              "type": "string",
+              "id": 7
+            },
+            "documentId": {
+              "type": "string",
+              "id": 8
+            }
+          }
+        }
+      }
+    },
+    "Block": {
+      "nested": {
+        "BlockStyle": {
+          "fields": {
+            "fontSize": {
+              "type": "int32",
+              "id": 1
+            }
+          }
+        },
+        "BlockEntity": {
+          "fields": {
+            "id": {
+              "type": "string",
+              "id": 1
+            },
+            "entityId": {
+              "type": "string",
+              "id": 2
+            },
+            "contentIds": {
+              "rule": "repeated",
+              "type": "string",
+              "id": 3
+            },
+            "fixIds": {
+              "rule": "repeated",
+              "type": "string",
+              "id": 4
+            },
+            "blockStyle": {
+              "type": "BlockStyle",
+              "id": 5
+            },
+            "pieceType": {
+              "type": "PieceType",
+              "id": 6
+            },
+            "documentId": {
+              "type": "string",
+              "id": 7
+            }
+          }
+        }
+      }
+    },
+    "Piece": {
+      "nested": {
+        "PieceType": {
+          "values": {
+            "TEXT": 0,
+            "IMAGE": 1
+          }
+        },
+        "TextPieceStyle": {
+          "fields": {
+            "isItalic": {
+              "type": "bool",
+              "id": 1
+            },
+            "isBold": {
+              "type": "bool",
+              "id": 2
+            },
+            "isDeleted": {
+              "type": "bool",
+              "id": 3
+            },
+            "color": {
+              "type": "string",
+              "id": 4
+            },
+            "background": {
+              "type": "string",
+              "id": 5
+            }
+          }
+        },
+        "ImagePieceStyle": {
+          "fields": {
+            "width": {
+              "type": "int32",
+              "id": 1
+            },
+            "height": {
+              "type": "int32",
+              "id": 2
+            }
+          }
+        },
+        "PieceEntity": {
+          "fields": {
+            "id": {
+              "type": "string",
+              "id": 1
+            },
+            "entityId": {
+              "type": "string",
+              "id": 2
+            },
+            "content": {
+              "type": "string",
+              "id": 3
+            },
+            "pieceType": {
+              "type": "PieceType",
+              "id": 4
+            },
+            "textPieceStyle": {
+              "type": "TextPieceStyle",
+              "id": 5
+            },
+            "imagePieceStyle": {
+              "type": "ImagePieceStyle",
+              "id": 6
+            },
+            "url": {
+              "type": "string",
+              "id": 7
+            },
+            "documentId": {
+              "type": "string",
+              "id": 8
+            }
+          }
+        }
+      }
+    },
+    "Fix": {
+      "nested": {
+        "TextFixStyle": {
+          "fields": {
+            "color": {
+              "type": "string",
+              "id": 1
+            },
+            "background": {
+              "type": "string",
+              "id": 2
+            },
+            "fontSize": {
+              "type": "int32",
+              "id": 3
+            }
+          }
+        },
+        "ImageFixStyle": {
+          "fields": {
+            "width": {
+              "type": "int32",
+              "id": 1
+            },
+            "height": {
+              "type": "int32",
+              "id": 2
+            }
+          }
+        },
+        "FixType": {
+          "values": {
+            "TEXT": 0,
+            "IMAGE": 1
+          }
+        },
+        "FixEntity": {
+          "fields": {
+            "id": {
+              "type": "string",
+              "id": 1
+            },
+            "entityId": {
+              "type": "string",
+              "id": 2
+            },
+            "content": {
+              "type": "string",
+              "id": 3
+            },
+            "fixType": {
+              "type": "FixType",
+              "id": 4
+            },
+            "top": {
+              "type": "int32",
+              "id": 5
+            },
+            "left": {
+              "type": "int32",
+              "id": 6
+            },
+            "right": {
+              "type": "int32",
+              "id": 7
+            },
+            "bottom": {
+              "type": "int32",
+              "id": 8
+            },
+            "textFixStyle": {
+              "type": "TextFixStyle",
+              "id": 9
+            },
+            "imageFixStyle": {
+              "type": "ImageFixStyle",
+              "id": 10
+            },
+            "documentId": {
+              "type": "string",
+              "id": 11
+            }
+          }
+        }
+      }
+    },
+    "Save": {
+      "nested": {
+        "SaveEntity": {
+          "fields": {
+            "latestCursor": {
+              "type": "string",
+              "id": 1
+            },
+            "setEntities": {
+              "rule": "repeated",
+              "type": "SetEntity",
+              "id": 2
+            },
+            "blockEntities": {
+              "rule": "repeated",
+              "type": "BlockEntity",
+              "id": 3
+            },
+            "fixEntities": {
+              "rule": "repeated",
+              "type": "FixEntity",
+              "id": 4
+            },
+            "pieceEntities": {
+              "rule": "repeated",
+              "type": "PieceEntity",
+              "id": 5
+            }
+          }
+        }
+      }
+    }
+  }
+}

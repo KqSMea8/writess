@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package Block;
+
+import "./piece.proto";
+
+message BlockStyle {
+  int32 font_size = 1;
+}
+
+message BlockEntity {
+  string id = 1;
+  string entity_id = 2;
+  repeated string content_ids = 3;
+  repeated string fix_ids = 4;
+  BlockStyle block_style = 5;
+  PieceType piece_type = 6;
+  string document_id = 7;
+}

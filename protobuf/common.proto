@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package Common;
+
+enum NodeType {
+  SET_NODE = 0;
+  BLOCK_NODE = 1;
+  PIECE_NODE = 2;
+}
